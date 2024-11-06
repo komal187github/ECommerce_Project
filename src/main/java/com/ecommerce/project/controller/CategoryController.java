@@ -35,13 +35,11 @@ public class CategoryController {
         CategoryResponse categoryResponse = categoryService.getAllCategories(pageNumber,pageSize,sortBy, sortOrder);
         return new ResponseEntity<>(categoryResponse, HttpStatus.OK);
     }
-
     @PostMapping("/admin/cegories")
     public ResponseEntity<CategoryDTO> createCategories(@Valid @RequestBody CategoryDTO categoryDTO){
         CategoryDTO savedCategoryDTO = categoryService.createCategory(categoryDTO);
         return new ResponseEntity<>(savedCategoryDTO,HttpStatus.CREATED);
     }
-
     @DeleteMapping("/admin/categories/{categoryId}")
     public ResponseEntity<CategoryDTO> deleteCategory(@PathVariable Long categoryId) {
 
@@ -58,5 +56,4 @@ public class CategoryController {
         return new ResponseEntity<>(savedCategoryDTO,HttpStatus.OK);
 
     }
-
 }
